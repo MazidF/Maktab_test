@@ -1,6 +1,7 @@
 package com.example.newproject.data.network
 
 import com.example.newproject.model.User
+import com.example.newproject.model.UserFromServer
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -17,5 +18,8 @@ interface MyService {
     @POST("users/{id}/image")
     fun uploadImage(@Path("id")id:String,
     @Part image : MultipartBody.Part): Call<Any>
+
+    @GET("http://papp.ir/api/v1/users")
+    fun getUser(@QueryMap users:HashMap<String,String> = hashMapOf()):Call<List<UserFromServer>>
 
 }

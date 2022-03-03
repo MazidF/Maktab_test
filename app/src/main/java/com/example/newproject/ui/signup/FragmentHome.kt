@@ -26,6 +26,13 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.bind(view)
         init()
         initObserve()
+        goToListUser()
+    }
+
+    private fun goToListUser() {
+        binding.getListUsers.setOnClickListener {
+            navController.navigate(R.id.action_fragmentHome_to_userFragment)
+        }
     }
 
     private fun init() {

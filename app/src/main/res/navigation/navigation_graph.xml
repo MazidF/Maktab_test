@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_fragmentHome_to_uploadImage"
             app:destination="@id/uploadImage" />
+        <action
+            android:id="@+id/action_fragmentHome_to_userFragment"
+            app:destination="@id/userFragment" />
     </fragment>
     <fragment
         android:id="@+id/uploadImage"
@@ -22,5 +25,9 @@
             android:name="userId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.newproject.ui.users.UserFragment"
+        android:label="UserFragment" />
 
 </navigation>

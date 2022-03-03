@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/parva/AndroidStudioProjects/Maktab_test1/app/src/main/res/layout/fragment_uploadimage.xml" value="0.10185185185185185" />
         <entry key="..\:/Users/vcc/AndroidStudioProjects/NewProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vcc/AndroidStudioProjects/NewProject/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/bootcamp/quiz/Maktab_test/app/src/main/res/layout/fragment_home.xml" value="0.20199275362318841" />
+        <entry key="..\:/bootcamp/quiz/Maktab_test/app/src/main/res/layout/user_fragment.xml" value="0.1" />
       </map>
     </option>
   </component>
