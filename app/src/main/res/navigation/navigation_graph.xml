@@ -7,8 +7,20 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.example.newproject.ui.FragmentHome"
+        android:name="com.example.newproject.ui.signup.FragmentHome"
         android:label="FragmentHome"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragmentHome_to_uploadImage"
+            app:destination="@id/uploadImage" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadImage"
+        android:name="com.example.newproject.ui.uploadimage.UploadImage"
+        android:label="UploadImage" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
