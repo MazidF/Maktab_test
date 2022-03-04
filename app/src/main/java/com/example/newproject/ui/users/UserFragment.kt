@@ -42,6 +42,7 @@ class UserFragment : Fragment(R.layout.user_fragment) {
          viewModel.searchResult.observe(viewLifecycleOwner, Observer {
              listUsers.clear()
              listUsers.addAll(it)
+             recyclerAdaptor.notifyDataSetChanged()
          })
         binding.btsearch.setOnClickListener {
 

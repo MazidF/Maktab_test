@@ -53,7 +53,7 @@ private val _searchResult = MutableLiveData<List<String>>()
     }
     fun getUserFromFirstName(firstname:String) {
        if (firstname.isNotBlank()){
-           searchFromUsers( hashMapOf("firstname" to firstname))
+           searchFromUsers( hashMapOf("firstName" to firstname))
         }
 
     }
