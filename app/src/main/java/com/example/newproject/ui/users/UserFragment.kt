@@ -5,20 +5,24 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newproject.R
 import com.example.newproject.databinding.UserFragmentBinding
 
-class UserFragment:Fragment(R.layout.user_fragment) {
+class UserFragment : Fragment(R.layout.user_fragment) {
 
-    lateinit var binding:UserFragmentBinding
+    lateinit var binding: UserFragmentBinding
 
     private val viewModel: UserViewModel by activityViewModels()
 
     private var listUsers = mutableListOf<String>()
 
-    private lateinit var recyclerAdaptor:RecyclerAdaptor
+
+
+    private lateinit var recyclerAdaptor: RecyclerAdaptor
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,7 +31,7 @@ class UserFragment:Fragment(R.layout.user_fragment) {
 
         viewModel.getUsersFromServer()
 
-        viewModel._listUsers.observe(viewLifecycleOwner){
+        viewModel._listUsers.observe(viewLifecycleOwner) {
             listUsers.clear()
             listUsers.addAll(it)
             recyclerAdaptor.notifyDataSetChanged()
@@ -36,7 +40,14 @@ class UserFragment:Fragment(R.layout.user_fragment) {
         recyclerAdaptor = RecyclerAdaptor(listUsers)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = recyclerAdaptor
+         viewModel.searchResult.observe(viewLifecycleOwner, Observer {
+             listUsers.clear()
+             listUsers.addAll(it)
+         })
+        binding.btsearch.setOnClickListener {
 
+          viewModel.getUserFromFirstName(binding.edsearch.text.toString())
 
+        }
     }
 }
