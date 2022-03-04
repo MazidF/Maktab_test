@@ -18,6 +18,7 @@ class UserFragment : Fragment(R.layout.user_fragment) {
     private val viewModel: UserViewModel by activityViewModels()
 
     private var listUsers = mutableListOf<String>()
+    private var search= mutableListOf<String>()
 
 
 
@@ -37,9 +38,7 @@ class UserFragment : Fragment(R.layout.user_fragment) {
             recyclerAdaptor.notifyDataSetChanged()
         }
 
-        recyclerAdaptor = RecyclerAdaptor(listUsers)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = recyclerAdaptor
+
          viewModel.searchResult.observe(viewLifecycleOwner, Observer {
              listUsers.clear()
              listUsers.addAll(it)
@@ -49,5 +48,8 @@ class UserFragment : Fragment(R.layout.user_fragment) {
           viewModel.getUserFromFirstName(binding.edsearch.text.toString())
 
         }
+        recyclerAdaptor = RecyclerAdaptor(listUsers)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = recyclerAdaptor
     }
 }
